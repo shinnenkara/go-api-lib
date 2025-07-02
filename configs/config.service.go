@@ -8,12 +8,14 @@ import (
 	"path/filepath"
 )
 
-func Load() {
+func Load() error {
 	envFile := getEnvFilePath()
 
 	if err := godotenv.Load(envFile); err != nil {
-		panic(err)
+		return err
 	}
+
+	return nil
 }
 
 func getEnvFileName() string {
