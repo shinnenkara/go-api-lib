@@ -1,7 +1,7 @@
 package di
 
 import (
-	"go-api-lib/logger"
+	"github.com/shinnenkara/go-api-lib/logger"
 	"gorm.io/gorm"
 )
 

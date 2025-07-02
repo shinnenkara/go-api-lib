@@ -2,7 +2,7 @@ package logger
 
 import (
 	"github.com/gin-gonic/gin"
-	"go-api-lib/utils"
+	"github.com/shinnenkara/go-api-lib/utils"
 	"go.uber.org/zap"
 )
 

@@ -1,6 +1,8 @@
 package di
 
-import "go-api-lib/api"
+import (
+	"github.com/shinnenkara/go-api-lib/api"
+)
 
 type Container struct {
 	Controller api.Controller
