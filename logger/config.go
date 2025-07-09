@@ -36,7 +36,7 @@ func (logger *Logger) withInfoFields(context *gin.Context) *zap.Logger {
 	traceID := getTraceId(context)
 	context.Set("reqID", traceID)
 
-	return logger.log.With(
+	return logger.Engine.With(
 		zap.String("trace_id", traceID),
 		zap.String("app_service", logger.appName),
 	)

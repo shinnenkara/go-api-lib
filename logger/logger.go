@@ -7,17 +7,21 @@ import (
 )
 
 type Logger struct {
-	log     *zap.Logger
+	Engine  *zap.Logger
 	appName string
 }
 
 func NewLogger(appName string) *Logger {
-	return &Logger{log: configLogger(), appName: appName}
+	return &Logger{Engine: configLogger(), appName: appName}
 }
 
 func (logger *Logger) Named(name string) *Logger {
-	namedLog := logger.log.Named(name)
-	return &Logger{log: namedLog, appName: logger.appName}
+	namedLog := logger.Engine.Named(name)
+	return &Logger{Engine: namedLog, appName: logger.appName}
+}
+
+func (logger *Logger) Log(message string) {
+	logger.Engine.Info(message)
 }
 
 func (logger *Logger) Info(context *gin.Context, message string) {
@@ -29,6 +33,6 @@ func (logger *Logger) Error(context *gin.Context, message string) {
 }
 
 func (logger *Logger) SyncLogs() {
-	err := logger.log.Sync()
+	err := logger.Engine.Sync()
 	utils.FailOnError(err, "Failed to sync logs")
 }

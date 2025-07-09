@@ -12,7 +12,7 @@ type AppWriter struct {
 
 func (logger *Logger) Writer() *AppWriter {
 	return &AppWriter{
-		logger: logger.log.Sugar(),
+		logger: logger.Engine.Sugar(),
 		level:  zapcore.InfoLevel,
 	}
 }
