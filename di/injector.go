@@ -1,7 +1,7 @@
 package di
 
 type Injector struct {
-	Dependencies []Dependencies
+	Dependencies Dependencies
 }
 
 func (i *Injector) Inject(modules []Module) []Module {

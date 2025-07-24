@@ -5,6 +5,6 @@ import (
 )
 
 type Module interface {
-	Init(dependencies []Dependencies)
+	Init(dependencies Dependencies)
 	GetController() api.Controller
 }
