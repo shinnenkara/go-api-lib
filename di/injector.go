@@ -1,16 +1,12 @@
 package di
 
-import (
-	"github.com/shinnenkara/go-api-lib/logger"
-)
-
 type Injector struct {
-	Logger *logger.Logger
+	Dependencies []Dependencies
 }
 
-func (injector *Injector) Inject(modules []Module) []Module {
+func (i *Injector) Inject(modules []Module) []Module {
 	for _, module := range modules {
-		module.Init(injector.Logger)
+		module.Init(i.Dependencies)
 	}
 
 	return modules
